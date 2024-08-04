@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "postbuild": "copyfiles -u 1 dist/**/* ../public/ && copyfiles -u 1 ../public/index.html ../../resource/views/welcome.blade.php"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.6.0",
