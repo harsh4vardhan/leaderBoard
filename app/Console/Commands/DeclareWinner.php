@@ -26,7 +26,9 @@ class DeclareWinner extends Command
                 'leaderboard_user_id' => $highestScoringUsers[0]->id,
                 'points' => $highestScoringUsers[0]->points,
                 'won_at' => Carbon::now(),
+                'name' => $highestScoringUsers[0]->name
             ]);
+            var_dump($highestScoringUsers[0]);
             $this->info('Winner declared.');
         } else {
             $this->info('No winner declared due to tie.');

@@ -2,23 +2,26 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "dev": "vite",
-        "build": "vite build",
-        "preview": "vite preview"
+      "dev": "vite",
+      "build": "vite build && npm run postbuild",
+      "preview": "vite preview",
+      "postbuild": "copyfiles -u 1 dist/**/* ../public/ && copyfiles -u 1 ../public/index.html ../../resource/views/welcome.blade.php"
     },
     "devDependencies": {
-        "@popperjs/core": "^2.11.6",
-        "axios": "^1.6.4",
-        "bootstrap": "^5.2.3",
-        "laravel-vite-plugin": "^1.0.0",
-        "sass": "^1.56.1",
-        "vue": "^3.4.35"
+      "@popperjs/core": "^2.11.6",
+      "axios": "^1.6.4",
+      "bootstrap": "^5.2.3",
+      "laravel-vite-plugin": "^1.0.0",
+      "sass": "^1.56.1",
+      "vue": "^3.4.35",
+      "copyfiles": "^2.4.1"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "^6.6.0",
-        "laravel-mix": "^6.0.49",
-        "vue-loader": "^17.3.1",
-        "vue-router": "^4.0.13",
-        "vuex": "^4.0.2"
+      "@fortawesome/fontawesome-free": "^6.6.0",
+      "laravel-mix": "^6.0.49",
+      "vue-loader": "^17.3.1",
+      "vue-router": "^4.0.13",
+      "vuex": "^4.0.2"
     }
-}
+  }
+  

@@ -9,7 +9,7 @@ class Winner extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['leaderboard_user_id', 'points', 'won_at'];
+    protected $fillable = ['leaderboard_user_id', 'points', 'won_at','name'];
 
     public function leaderboardUser()
     {
