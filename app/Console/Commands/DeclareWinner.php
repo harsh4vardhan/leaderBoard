@@ -28,7 +28,6 @@ class DeclareWinner extends Command
                 'won_at' => Carbon::now(),
                 'name' => $highestScoringUsers[0]->name
             ]);
-            var_dump($highestScoringUsers[0]);
             $this->info('Winner declared.');
         } else {
             $this->info('No winner declared due to tie.');

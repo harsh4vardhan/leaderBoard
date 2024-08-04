@@ -44,10 +44,13 @@ class LeaderboardUserController extends Controller
     
         $newPoints = $leaderboardUser->points + $validatedData['points'];
     
+        $newPoints = max($newPoints, 0);
+    
         $leaderboardUser->update(['points' => $newPoints]);
     
         return response()->json($leaderboardUser);
     }
+    
     
 
     public function destroy(LeaderboardUser $leaderboardUser)
