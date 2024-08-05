@@ -5,7 +5,7 @@
       "dev": "vite",
       "build": "vite build && npm run postbuild",
       "preview": "vite preview",
-      "postbuild": "copyfiles -u 1 dist/**/* ../public/ && copyfiles -u 1 ../public/index.html ../../resource/views/welcome.blade.php"
+      "postbuild": "rimraf ../../public/assets ../../public/index.html && copyfiles -u 1 dist/* ../../public && copyfiles -u 1 dist/assets/**/* ../../public/assets"
     },
     "devDependencies": {
       "@popperjs/core": "^2.11.6",

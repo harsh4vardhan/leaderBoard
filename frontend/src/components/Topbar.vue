@@ -1,20 +1,20 @@
 <template>
   <div class="flex flex-col md:flex-row items-center p-4 bg-gray-100 border-b border-gray-200">
     <!-- Sort Buttons with Icons -->
-    <div class="flex flex-wrap space-x-2 mb-2 md:mb-0">
+    <div class="flex flex-wrap space-x-2 mb-2 md:mb-2">
       <button
         @click="sortByName"
-        class="flex items-center bg-gray-500 text-white px-2 py-1 rounded-md hover:bg-gray-600 text-xs md:text-sm"
+        class="flex items-center bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600 text-sm md:text-base"
       >
-        <i class="fas fa-sort-alpha-up mr-1 md:mr-2"></i>
-        <span class="hidden md:inline">Name</span>
+        <i class="fas fa-sort-alpha-up mr-2 md:mr-3"></i>
+        <span >Sort by Name</span>
       </button>
       <button
         @click="sortByPoints"
-        class="flex items-center bg-gray-500 text-white px-2 py-1 rounded-md hover:bg-gray-600 text-xs md:text-sm"
+        class="flex items-center bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600 text-sm md:text-base"
       >
-        <i class="fas fa-sort-numeric-up mr-1 md:mr-2"></i>
-        <span class="hidden md:inline">Points</span>
+        <i class="fas fa-sort-numeric-up mr-2 md:mr-3"></i>
+        <span >Sort by Points</span>
       </button>
     </div>
 
@@ -23,19 +23,19 @@
       v-model="searchQuery"
       type="text"
       placeholder="Search users..."
-      class="mx-2 md:mx-4 p-2 border rounded-md flex-grow text-xs md:text-sm"
+      class="mx-2 md:mx-4 p-2 border rounded-md flex-grow text-sm md:text-base"
     />
 
     <!-- Add User Button -->
     <button
       @click="toggleAddUserForm"
-      class="ml-auto bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 text-xs md:text-sm"
+      class="ml-auto bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 text-sm md:text-base"
     >
       Add User
     </button>
 
     <!-- Winner Display -->
-    <div class="ml-2 md:ml-4 flex items-center text-xs md:text-sm">
+    <div class="ml-2 md:ml-4 flex items-center text-sm md:text-base">
       <span v-if="winner" class="font-semibold">Current Winner:</span>
       <span v-if="winner" class="ml-1 md:ml-2">
         {{ winner.name }} ({{ winner.points }} points)

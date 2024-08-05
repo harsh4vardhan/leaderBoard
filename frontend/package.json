@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && npm run postbuild",
     "preview": "vite preview",
-    "postbuild": "copyfiles -u 1 dist/**/* ../public/ && copyfiles -u 1 ../public/index.html ../../resource/views/welcome.blade.php"
+    "postbuild": "rimraf ../public/assets && rimraf ../public/index.html && copyfiles -u 1 dist/index.html ../public && copyfiles -u 1 dist/assets/**/* ../public"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.6.0",
@@ -20,6 +20,7 @@
     "autoprefixer": "^10.4.20",
     "copyfiles": "^2.4.1",
     "postcss": "^8.4.40",
+    "rimraf": "^6.0.1",
     "tailwindcss": "^3.4.7",
     "vite": "^5.3.4"
   }

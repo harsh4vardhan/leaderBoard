@@ -1,66 +1,100 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Laravel Project
+Overview
+This is a Laravel-based project with a Vue 3 frontend. The project includes functionalities for managing leaderboard users and winners, as well as generating QR codes.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Setup Instructions
+Prerequisites
+Composer
+Node.js and npm
+Installation
+Clone the Repository
 
-## About Laravel
+git clone https://github.com/harsh4vardhan/leaderBoard.git
+cd leaderBoard
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Run the following command to install composer dependencies:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+composer install
+Set Up Environment Variables
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Copy the .env.example file to .env and update the environment variables as needed:
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+cp .env.example .env
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Generate Application Key
+php artisan key:generate
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Run Migrations
 
-### Premium Partners
+Run the database migrations to set up the initial database schema:
+php artisan migrate
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
 
-## Contributing
+Install Frontend Dependencies
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Navigate to the frontend directory and install the frontend dependencies:
+cd frontend
+npm install
+Build Frontend Assets
 
-## Code of Conduct
+Generate the production build of the frontend:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+npm run build
+The build files will be generated in the frontend/dist directory.
 
-## Security Vulnerabilities
+Serve the Application
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+You can now start the Laravel development server:
+php artisan serve
+The application will be available at http://localhost:8000.
 
-## License
+Jobs
+Declare Winner
+Job Description: Handles the logic for declaring the current winner based on the leaderboard data.
+Usage: To declare a winner, ensure the relevant logic is executed via scheduled tasks or command-line execution.
+Generate QR Code
+Job Description: Responsible for generating QR codes for various purposes.
+Usage: QR codes can be generated using a dedicated service or command as defined in your application.
+Frontend Resources
+The frontend resources are located in the frontend folder. The Vue 3 application uses modern JavaScript tooling and is built using Vite.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+API Endpoints
+All API endpoints are prefixed with /api. Here is a brief overview of the available routes:
+
+Leaderboard Users
+GET /api/leaderboard-users
+Fetch all leaderboard users.
+
+POST /api/leaderboard-users
+Create a new leaderboard user.
+
+GET /api/leaderboard-users/{leaderboardUser}
+Retrieve a specific leaderboard user by ID.
+
+PUT /api/leaderboard-users/{leaderboardUser}
+Update a specific leaderboard user by ID.
+
+DELETE /api/leaderboard-users/{leaderboardUser}
+Delete a specific leaderboard user by ID.
+
+GET /api/leaderboard-users/search
+Search for leaderboard users based on query parameters.
+
+GET /api/leaderboard-users/sort/name
+Sort leaderboard users by name.
+
+GET /api/leaderboard-users/sort/points
+Sort leaderboard users by points.
+
+GET /api/leaderboard-users/group/score
+Group leaderboard users by score.
+
+Leaderboard Winner
+GET /api/leaderboard-winner
+Retrieve the current winner from the leaderboard.
+Notes
+Ensure that you have the correct database and API configurations in your .env file.
+For more advanced usage, refer to the Laravel and Vue.js documentation.
