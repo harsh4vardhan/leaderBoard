@@ -32,6 +32,15 @@ Run Migrations
 Run the database migrations to set up the initial database schema:
 php artisan migrate
 
+Seeding database 
+php artisan db:seed --class=LeaderboardUserSeeder
+
+reset the score
+php artisan scores:reset
+
+declare winner 
+php artisan winner:declare
+
 Test Cases
 run php artisan test to run test cases
 
