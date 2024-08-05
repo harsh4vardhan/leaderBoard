@@ -32,6 +32,8 @@ Run Migrations
 Run the database migrations to set up the initial database schema:
 php artisan migrate
 
+Test Cases
+run php artisan test to run test cases
 
 Install Frontend Dependencies
 
