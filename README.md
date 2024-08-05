@@ -34,6 +34,8 @@ Declare Winner<br>
 php artisan winner:declare<br>
 
 Test Cases<br>
+create a .env.testing <br>
+create a new database for testing <br>
 Run php artisan test to run test cases.<br>
 
 Install Frontend Dependencies<br>
